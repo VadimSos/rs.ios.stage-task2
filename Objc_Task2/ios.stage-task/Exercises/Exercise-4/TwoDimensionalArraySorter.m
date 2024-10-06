@@ -28,8 +28,16 @@
     
     // Check if we only have strings
     if (strings.count > 0 && numbers.count == 0) {
-        [strings sortUsingSelector:@selector(compare:)]; // Ascending order
+        [strings sortUsingSelector:@selector(compare:)];
         return [strings copy];
+    }
+    
+    // If we have both numbers and strings
+    if (numbers.count > 0 && strings.count > 0) {
+        [numbers sortUsingSelector:@selector(compare:)];
+        NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO]; // Descending order
+        [strings sortUsingDescriptors:@[sortDesc]];
+        return @[ [numbers copy], [strings copy] ];
     }
     
     return @[];

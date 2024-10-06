@@ -35,5 +35,11 @@
     XCTAssertEqual(count, 1);
 }
 
+- (void)test5 {
+    NSInteger count = [self.pairs countPairs: @[@1, @2, @2, @3] number: @1];
+    NSLog(@"Count = %ld", (long)count);
+    XCTAssertEqual(count, 4);
+}
+
 
 @end

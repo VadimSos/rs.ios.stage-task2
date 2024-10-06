@@ -4,7 +4,7 @@
 
 - (NSString *)ipFormatConverter:(NSArray *)numbersArray {
     
-    if (numbersArray == nil || numbersArray.count == 0) {
+    if (!numbersArray.count) {
         return @"";
     }
     
